@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Head from "next/head";
 import DynamicForm from "@/component/dynamicform";
 
 export default function Home({ initialFields }) {
@@ -31,12 +30,10 @@ export default function Home({ initialFields }) {
 
   return (
     <>
-      <Head>
-        <title>Dynamic Form</title>
-      </Head>
-      <main className="min-h-screen bg-gray-50 p-4">
-        <div className="flex justify-between items-center mb-6 max-w-4xl mx-auto">
-          <h1 className="text-xl font-bold text-gray-800">Dynamic Form</h1>
+      <div className="bg-white h-dvh w-full min-h-screen p-4 ">
+        <div className="flex flex-col items-center justify-center space-y-8 mb-6 max-w-4xl mx-auto">
+          <h1 className="text-6xl font-bold text-gray-800">Dynamic Form</h1>
+          <div className="flex flex-col items-center space-y-2">
           <button
             onClick={fetchNewForm}
             disabled={loading}
@@ -44,11 +41,15 @@ export default function Home({ initialFields }) {
           >
             {loading ? "Loading..." : "Fetch New Form"}
           </button>
+          <p className="text-gray-600 text-xl bold ">Click this button to get a random form from the database</p>
+          </div>
         </div>
 
         <DynamicForm data={fields} theme={theme} logo="/logo.png" />
-      </main>
+      
+      </div>
     </>
+    
   );
 }
 
